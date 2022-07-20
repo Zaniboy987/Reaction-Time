@@ -34,6 +34,7 @@ public class reactionTime {
         switch (num) {
             case 1:
                 System.out.println("You chose the option to PLAY");
+                game();
                 break;
             case 2:
                 System.out.println("You chose the option to view the leaderboard");
@@ -56,9 +57,24 @@ public class reactionTime {
     }
 
 
+    // method includes reaction time segment
     static long game() {
-        return 0;
+        System.out.println("ENTER 1 WHEN YOU SEE - GO -\n");
+        Scanner input = new Scanner(System.in);
+
+        // beginning time
+        long start = currentTimeMillis();
+
+        // ending time
+        long end = currentTimeMillis();
+
+        // result
+        long result = end - start;
+
+        System.out.println("YOUR REACTION TIME IS: " + result + "ms!");
+        return result;
     }
+
 
     // main method
     public static void main(String[] args) {
