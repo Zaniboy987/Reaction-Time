@@ -1,9 +1,7 @@
+// PACKAGE AND IMPORTED LIBRARIES
 package main;
-// imported libraries
-
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import static java.lang.System.currentTimeMillis;
 
 // main class
@@ -16,6 +14,7 @@ public class reactionTime {
                 "You will be challenged on how fast you can react!\n" +
                 "**************************************************\n");
     }
+
 
     // recurring menu
     static void menu() {
@@ -38,10 +37,12 @@ public class reactionTime {
                 break;
             case 2:
                 System.out.println("You chose the option to view the leaderboard");
+                // leaderboard();
                 break;
         }
     }
 
+    // TODO: 7/20/2022
     // leaderboards
     static void leaderboard(int tries, ArrayList<Long> times) {
         System.out.println("RANK\tTIME");
@@ -56,23 +57,32 @@ public class reactionTime {
                 "Enter 1 to return to the main menu\n\n");
     }
 
-
+    // TODO: 7/20/2022
     // method includes reaction time segment
     static long game() {
+        // PRE - PAUSE PHASE
         System.out.println("ENTER 1 WHEN YOU SEE - GO -\n");
         Scanner input = new Scanner(System.in);
+        long pauseStart = currentTimeMillis();
+        long pauseCurrent = currentTimeMillis();
+        int gameInput = 0;
 
-        // beginning time
-        long start = currentTimeMillis();
+        while ((pauseCurrent - pauseStart) < 5000) {
+            pauseCurrent = currentTimeMillis();
+        }
 
-        // ending time
-        long end = currentTimeMillis();
+        // POST PAUSE PHASE
+        long playerStart = 0;
+        while (gameInput > 1 || gameInput < 1) {
+            System.out.println("ENTER 1!!!");
+            playerStart = currentTimeMillis();
+            gameInput = input.nextInt();
+        }
 
-        // result
-        long result = end - start;
-
-        System.out.println("YOUR REACTION TIME IS: " + result + "ms!");
-        return result;
+        long playerEnd = currentTimeMillis();
+        long playerResult = playerEnd - playerStart - 200;
+        System.out.println("YOUR REACTION TIME IS: " + playerResult + "ms!");
+        return playerResult;
     }
 
 
