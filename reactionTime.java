@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import static java.lang.System.currentTimeMillis;
 
-// main class
+// MAIN CLASS
 public class reactionTime {
-    // opening sequence
+    // OPENING SEQUENCE
     static void opening() {
         System.out.println("**************************************************\n" +
                 "\t\t\tWELCOME TO REACTION TIME!\n" +
@@ -15,21 +15,18 @@ public class reactionTime {
                 "**************************************************\n");
     }
 
-
-    // recurring menu
+    // RECURRING MENU
     static void menu() {
-        // Initialize variables
         Scanner input = new Scanner(System.in);
         int num = 0;
 
-        // do-while loop to determine action of the user
-        do {
-            System.out.println("1. PLAY!\t2. LEADERBOARD\t3. EXIT\n\n" +
+        // DO-WHILE LOOP DETERMINES ACTIONS OF THE USER
+        do {System.out.println("1. PLAY!\t2. LEADERBOARD\t3. EXIT\n\n" +
                     "Enter the number for your desired ACTION!");
             num = input.nextInt();
         } while (num > 3);
 
-        // switch cases determine next actions of the user
+        // INTERPRETS INPUT TO CORRESPONDING OPTION
         switch (num) {
             case 1:
                 System.out.println("You chose the option to PLAY");
@@ -43,7 +40,7 @@ public class reactionTime {
     }
 
     // TODO: 7/20/2022
-    // leaderboards
+    // LEADERBOARDS
     static void leaderboard(int tries, ArrayList<Long> times) {
         System.out.println("RANK\tTIME");
 
@@ -58,7 +55,7 @@ public class reactionTime {
     }
 
     // TODO: 7/20/2022
-    // method includes reaction time segment
+    // METHOD INCLUDES REACTION TIME SEGMENT
     static long game() {
         // PRE - PAUSE PHASE
         System.out.println("ENTER 1 WHEN YOU SEE - GO -\n");
@@ -80,25 +77,23 @@ public class reactionTime {
         }
 
         long playerEnd = currentTimeMillis();
-        long playerResult = playerEnd - playerStart - 200;
+        long playerResult = playerEnd - playerStart - 250;
         System.out.println("YOUR REACTION TIME IS: " + playerResult + "ms!");
         return playerResult;
     }
 
-
-    // main method
+    // MAIN METHOD
     public static void main(String[] args) {
-        // initialize variables
         int tries = 0;
 
+        // METHODS LOCATED BENEATH
         opening();
         menu();
         // leaderboard();
 
-        // ending screen
+        // ENDING SCREEN
         System.out.println("\n**************************************************\n" +
                 "THANK YOU FOR PLAYING!!!\n" +
                 "**************************************************");
-
     }
 }
