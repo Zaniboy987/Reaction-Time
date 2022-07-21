@@ -53,7 +53,7 @@ public class reactionTime {
         System.out.println("RANK\tTIME");
 
         // loops for the amount of tries by the player
-        for (int i = 0; i < tries; i++) {
+        for (int i = 0; i < times.size(); i++) {
             System.out.println((i+1) + "\t\t" + times.get(i) + "ms");
         }
 
