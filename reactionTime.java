@@ -54,11 +54,11 @@ public class reactionTime {
 
         // loops for the amount of tries by the player
         for (int i = 0; i < tries; i++) {
-            System.out.println(i + "\t" + times.get(i));
+            System.out.println((i+1) + "\t\t" + times.get(i) + "ms");
         }
 
         // setting to return to main menu
-        System.out.println("**************************************************\n");
+        System.out.println("\n**************************************************\n");
     }
 
     // REACTION TIME GAME SEGMENT
