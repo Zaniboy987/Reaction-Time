@@ -6,6 +6,9 @@ import static java.lang.System.currentTimeMillis;
 
 // MAIN CLASS
 public class reactionTime {
+    // GLOBAL VARIABLES
+    static boolean exit = false;
+
     // OPENING SEQUENCE
     static void opening() {
         System.out.println("**************************************************\n" +
@@ -36,6 +39,10 @@ public class reactionTime {
                 System.out.println("You chose the option to view the leaderboard");
                 // leaderboard();
                 break;
+            case 3:
+                System.out.println("You chose the option to exit");
+                exit = true;
+                break;
         }
     }
 
@@ -54,7 +61,6 @@ public class reactionTime {
                 "Enter 1 to return to the main menu\n\n");
     }
 
-    // TODO: 7/20/2022
     // METHOD INCLUDES REACTION TIME SEGMENT
     static long game() {
         // PRE - PAUSE PHASE
@@ -82,14 +88,18 @@ public class reactionTime {
         return playerResult;
     }
 
+    // TODO: 7/21/2022
     // MAIN METHOD
     public static void main(String[] args) {
         int tries = 0;
 
-        // METHODS LOCATED BENEATH
+        // WHILE-LOOP TO GO THROUGH MENU SETTINGS UNTIL EXIT IS ENTERED
         opening();
         menu();
-        // leaderboard();
+
+        while (!exit) {
+            menu();
+        }
 
         // ENDING SCREEN
         System.out.println("\n**************************************************\n" +
