@@ -8,6 +8,8 @@ import static java.lang.System.currentTimeMillis;
 public class reactionTime {
     // GLOBAL VARIABLES
     static boolean exit = false;
+    static int tries = 0;
+    static ArrayList<Long> times = new ArrayList<Long>();
 
     // OPENING SEQUENCE
     static void opening() {
@@ -37,7 +39,7 @@ public class reactionTime {
                 break;
             case 2:
                 System.out.println("You chose the option to view the leaderboard");
-                // leaderboard();
+                leaderboard(tries, times);
                 break;
             case 3:
                 System.out.println("You chose the option to exit");
@@ -46,7 +48,6 @@ public class reactionTime {
         }
     }
 
-    // TODO: 7/20/2022
     // LEADERBOARDS
     static void leaderboard(int tries, ArrayList<Long> times) {
         System.out.println("RANK\tTIME");
@@ -57,11 +58,10 @@ public class reactionTime {
         }
 
         // setting to return to main menu
-        System.out.println("**************************************************\n" +
-                "Enter 1 to return to the main menu\n\n");
+        System.out.println("**************************************************\n");
     }
 
-    // METHOD INCLUDES REACTION TIME SEGMENT
+    // REACTION TIME GAME SEGMENT
     static long game() {
         // PRE - PAUSE PHASE
         System.out.println("ENTER 1 WHEN YOU SEE - GO -\n");
@@ -85,20 +85,20 @@ public class reactionTime {
         long playerEnd = currentTimeMillis();
         long playerResult = playerEnd - playerStart - 250;
         System.out.println("YOUR REACTION TIME IS: " + playerResult + "ms!");
+        times.add(playerResult);
         return playerResult;
     }
 
-    // TODO: 7/21/2022
     // MAIN METHOD
     public static void main(String[] args) {
-        int tries = 0;
-
         // WHILE-LOOP TO GO THROUGH MENU SETTINGS UNTIL EXIT IS ENTERED
         opening();
         menu();
+        tries++;
 
         while (!exit) {
             menu();
+            tries++;
         }
 
         // ENDING SCREEN
