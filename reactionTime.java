@@ -100,7 +100,7 @@ public class reactionTime {
 
         // ENDING SCREEN
         System.out.println("\n**************************************************\n" +
-                "THANK YOU FOR PLAYING!!!\n" +
+                "\t\t\tTHANK YOU FOR PLAYING!!!\n" +
                 "**************************************************");
     }
 }
