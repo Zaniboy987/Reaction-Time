@@ -34,15 +34,12 @@ public class reactionTime {
         // INTERPRETS INPUT TO CORRESPONDING OPTION
         switch (num) {
             case 1:
-                System.out.println("You chose the option to PLAY");
                 game();
                 break;
             case 2:
-                System.out.println("You chose the option to view the leaderboard");
                 leaderboard(tries, times);
                 break;
             case 3:
-                System.out.println("You chose the option to exit");
                 exit = true;
                 break;
         }
